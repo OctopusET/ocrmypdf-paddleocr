@@ -1,0 +1,12 @@
+linn.pdf, linn.txt
+  Source: OCRmyPDF test suite / Wikimedia Commons
+  Copyright: (C) 1985 Forat Electronics
+  License: GFDL-1.2-or-later OR CC-BY-SA-3.0
+
+korean_1.jpg
+  Source: PaddleOCR (docs/images/korean_1.jpg)
+  Copyright: PaddlePaddle Authors
+  License: Apache-2.0
+
+sample.pdf, sample_eng.png
+  Generated test images, no external copyright.
