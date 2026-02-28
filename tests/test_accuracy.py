@@ -103,7 +103,6 @@ class TestKoreanOcr:
         engine = PaddleOcrEngine()
         options = MagicMock()
         options.languages = ["kor"]
-        options.paddleocr_use_gpu = False
 
         ocr_tree, text = engine.generate_ocr(img, options)
         assert len(text) > 0, "No text detected in Korean image"

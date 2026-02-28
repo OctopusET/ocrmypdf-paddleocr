@@ -70,7 +70,6 @@ class TestPaddleOcrEngine:
         img.save(img_path, dpi=(300, 300))
         options = MagicMock()
         options.languages = ['eng']
-        options.paddleocr_use_gpu = False
         angle = engine.get_deskew(img_path, options)
         assert isinstance(angle, float)
 
@@ -85,7 +84,6 @@ class TestPaddleOcrEngine:
 
         options = MagicMock()
         options.languages = ['eng']
-        options.paddleocr_use_gpu = False
 
         ocr_tree, text = engine.generate_ocr(img_path, options, page_number=0)
 

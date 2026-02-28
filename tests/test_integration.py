@@ -34,7 +34,6 @@ def engine():
 def options():
     opts = MagicMock()
     opts.languages = ["eng"]
-    opts.paddleocr_use_gpu = False
     return opts
 
 

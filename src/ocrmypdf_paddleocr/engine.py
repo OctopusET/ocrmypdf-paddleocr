@@ -26,23 +26,19 @@ _paddle_engine = None
 _paddle_lang = None
 
 
-def _create_paddle_engine(lang: str, use_gpu: bool):
+def _create_paddle_engine(lang: str):
     """Create a new PaddleOCR engine instance."""
     # Tesseract's plugin sets OMP_THREAD_LIMIT=1 which cripples PaddlePaddle.
     saved = os.environ.pop('OMP_THREAD_LIMIT', None)
 
     from paddleocr import PaddleOCR
 
-    kwargs = dict(
+    engine = PaddleOCR(
         lang=lang,
         use_doc_orientation_classify=False,
         use_doc_unwarping=False,
         use_textline_orientation=True,
     )
-    if use_gpu:
-        kwargs['device'] = 'gpu:0'
-
-    engine = PaddleOCR(**kwargs)
 
     if saved is not None:
         os.environ['OMP_THREAD_LIMIT'] = saved
@@ -59,8 +55,7 @@ def _get_paddle_engine(options: OcrOptions):
     if _paddle_engine is not None and _paddle_lang == lang:
         return _paddle_engine
 
-    use_gpu = getattr(options, 'paddleocr_use_gpu', False)
-    _paddle_engine = _create_paddle_engine(lang, use_gpu)
+    _paddle_engine = _create_paddle_engine(lang)
     _paddle_lang = lang
 
     return _paddle_engine

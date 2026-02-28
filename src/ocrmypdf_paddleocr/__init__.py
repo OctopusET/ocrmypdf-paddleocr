@@ -26,19 +26,6 @@ def initialize(plugin_manager):
 
 
 @hookimpl
-def add_options(parser):
-    """Add PaddleOCR-specific CLI options."""
-    group = parser.add_argument_group("PaddleOCR", "PaddleOCR engine options")
-    group.add_argument(
-        '--paddleocr-use-gpu',
-        action='store_true',
-        default=False,
-        dest='paddleocr_use_gpu',
-        help="Use GPU acceleration for PaddleOCR (default: CPU).",
-    )
-
-
-@hookimpl
 def check_options(options):
     """Limit concurrency -- PaddlePaddle's inference crashes with multiple workers."""
     if options.jobs != 1:
