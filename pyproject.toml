@@ -1,7 +1,8 @@
 [project]
 name = "ocrmypdf-paddleocr"
-version = "0.1.0"
+version = "0.1.1"
 description = "PaddleOCR engine plugin for OCRmyPDF"
+readme = "README.md"
 license = { text = "MPL-2.0" }
 requires-python = ">=3.11"
 dependencies = [
